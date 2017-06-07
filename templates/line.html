@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 	<title>LineChart</title>
-	<script src="static/Chart1.min.js"></script>                  <!--USE Chart.min.js for example1-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>         
+
+                                                                                <!--USE Chart.min.js for example1
+                                                                                        Chart1.min.js for example2-->
 </head>
 <body>
 
@@ -81,7 +84,7 @@ var chartData = {
       label: '{{ legend }}',
       fill: true,
       lineTension: 0.1,
-      backgroundColor: "rgba(75,192,192,0.4)",
+      backgroundColor: "#aaeeff",
       borderColor: "rgba(75,192,192,1)",
       borderCapStyle: 'butt',
       borderDash: [],
@@ -92,7 +95,7 @@ var chartData = {
       pointBorderWidth: 1,
       pointHoverRadius: 5,
       pointHoverBackgroundColor: "rgba(75,192,192,1)",
-      pointHoverBorderColor: "rgba(220,220,220,1)",
+      pointHoverBorderColor: "#000",
       pointHoverBorderWidth: 2,
       pointRadius: 5,
       pointHitRadius: 10,
@@ -108,8 +111,20 @@ var ctx = document.getElementById("line").getContext("2d");
  
 // create the chart using the chart canvas
 var myChart = new Chart(ctx, {
-  type: 'line',                                            //type : 'bar', 'pie', 'line', 
-  data: chartData
+  type: 'line',                                            //type : 'bar', 'pie', 'line', 'horizontalBar'
+  data: chartData,
+  options: {
+    animation:{
+easing:"easeOutBounce"
+    },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
 });
 </script>
 
