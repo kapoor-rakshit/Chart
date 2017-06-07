@@ -72,9 +72,11 @@
 
 <script>
 	// Global parameters:
-// do not resize the chart canvas when its container does (keep at 600x400px)
-Chart.defaults.global.responsive = false;
+Chart.defaults.global.responsive = false;      // do not resize the chart canvas when its container does (keep at 600x400px)
  
+ Chart.defaults.global.defaultColor;            // If a color is needed, but not specified, Chart.js will use the global default color. 
+	                                          // It is initially set to 'rgba(0, 0, 0, 0.1)'	
+	
 // define the chart data
 var chartData = {
   labels : [{% for item in labels %}
