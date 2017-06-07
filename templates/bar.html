@@ -5,8 +5,8 @@
 	<title>BarChart</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>         
 
-                                                                                       <!--USE src="static/Chart.min.js" for example1
-                                                                                                src="static/Chart1.min.js" for example2-->
+                                                                                            <!--USE Chart.min.js for example1
+                                                                                                    Chart1.min.js for example2-->
 </head>
 <body>
 
@@ -64,8 +64,7 @@
 
 <script>
 	// Global parameters:
-    Chart.defaults.global.defaultColor            // If a color is needed, but not specified, Chart.js will use the global default color. 
-	                                          // It is initially set to 'rgba(0, 0, 0, 0.1)'
+
     Chart.defaults.global.responsive = false;                  //do not resize the chart canvas when its container does (keep at 600x400px)
 
 // define the chart data
@@ -115,6 +114,18 @@ easing :"easeOutBounce"
                     beginAtZero:true
                 }
             }]
+        },
+        layout:{
+          padding:{                                    // padding to the sides of the chart canvas
+            left: 100,
+            right:0,
+            top:0,
+            bottom:100
+          }
+        },
+        title:{
+          display:true,
+          text:"DataChart"
         }
     }
 });
