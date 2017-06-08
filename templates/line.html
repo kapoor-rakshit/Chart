@@ -82,7 +82,7 @@ var chartData = {
   labels : [{% for item in labels %}
              "{{item}}",
             {% endfor %}],
-  datasets : [{
+  datasets : [{                                              //first linegraph
       label: '{{ legend }}',
       fill: true,                                          //fill color in area below line
       lineTension: 0.2,                                    //Bézier curve tension
@@ -107,7 +107,23 @@ var chartData = {
               {% endfor %}],
       spanGaps: false                                //If true, lines will be drawn between points with no or null data. 
                                                     //If false, points with NaN data will create a break in the line
-  }]
+  },
+	      {
+     	label:"Marksof2",                              //second linegraph
+     	fill:false,
+     	backgroundColor:"rgba(255,153,0,0.4)",
+     	borderColor:"rgba(255,153,0,1)",
+     	borderWidth:1,
+     	pointRadius:5,
+     	pointHoverRadius:5,
+     	pointStyle:"circle",
+     	pointHoverBackgroundColor:"#000",
+     	pointHitRadius:5,
+     	pointBackgroundColor:"rgba(255,153,0,0.4)",
+     	 data : [{% for item2 in value2 %}
+                "{{item2}}",
+              {% endfor %}]
+     }]
 }
  
 // get chart canvas
