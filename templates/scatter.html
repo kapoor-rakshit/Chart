@@ -1,0 +1,57 @@
+<!--Scatter charts are based on basic line charts with the x axis changed to a linear axis. 
+To use a scatter chart, data must be passed as objects containing X and Y properties. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ScatterChart</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+<body>
+
+<canvas id="scatter" width="100" height="100"></canvas>
+
+<script>
+	var ctx = document.getElementById("scatter").getContext('2d');
+
+var chartData={
+	datasets:[{
+		label:"Candidate1",
+		data:[{x:1,y:8.65},{x:2,y:8.81},{x:3,y:8.33},{x:4,y:8.40},{x:5,y:8.40},{x:6,y:8.3}],
+		backgroundColor:"rgba(253,179,156,0.2)"
+	},{
+		label:"Candidate2",
+		data:[{x:1,y:6.65},{x:2,y:7.81},{x:3,y:7.33},{x:4,y:5.40},{x:5,y:9.40},{x:6,y:9.3}],
+		backgroundColor:"rgba(145,179,25,0.2)"
+	}
+	]
+}
+
+	new Chart(ctx,{
+type:"scatter",
+data:chartData,
+options:{
+title: {
+        display: true,
+        text: 'SGPA Comparisons'
+      }, scales: {
+        yAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "SGPA"
+          }
+        }],
+        xAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "Semesters"
+          }
+        }]
+      }
+}
+	});
+
+</script>
+
+</body>
+</html>
