@@ -84,7 +84,7 @@ var chartData = {
             {% endfor %}],
   datasets : [{
       label: '{{ legend }}',
-      fill: true,
+      fill: true,                                          //fill color in area below line
       lineTension: 0.2,                                    //Bézier curve tension
       backgroundColor: "#aaeeff",
       borderColor: "rgba(75,192,192,1)",
@@ -100,12 +100,13 @@ var chartData = {
       pointHoverBorderColor: "#000",
       pointHoverBorderWidth: 2,
       pointRadius: 5,
-      pointStyle:"cross",                                 //can be any "circle"
+      pointStyle:"triangle",                                 //can be any "circle, star, crossRot, cross, rect, triangle, line, rectRounded"
       pointHitRadius: 10,
       data : [{% for item in values %}
                 {{item}},
               {% endfor %}],
-      spanGaps: false
+      spanGaps: false                                //If true, lines will be drawn between points with no or null data. 
+                                                    //If false, points with NaN data will create a break in the line
   }]
 }
  
@@ -122,6 +123,7 @@ easing:"easeOutBounce"
     },
         scales: {
             yAxes: [{
+              stacked:true,                             // stacked area charts
                 ticks: {
                     beginAtZero:true
                 }

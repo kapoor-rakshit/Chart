@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PieChart</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+                                                                                                <!--USE src="static/Chart.min.js" for example1-->
+</head>
+<body>
+
+<canvas id="pie" width="400" height="100"></canvas>
+
+<!--EXAMPLE 1-->
+
+<!--<script>
+	 var pieData = [
+            {% for item,label,colors in st %}
+                {
+                    value: {{item}},
+                    label: "{{label}}",
+                    color : "{{colors}}"
+                },
+                {% endfor %}
+ 
+ 
+         ];
+ 
+   // get bar chart canvas
+   var mychart = document.getElementById("pie").getContext("2d");
+ 
+   // draw pie chart
+   new Chart(mychart).Pie(pieData);
+</script>-->
+
+<!--EXAMPLE 2-->
+<script>
+  var ctx = document.getElementById("pie").getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'doughnut',                               // 'pie' and 'doughnut' are same except the cutoutPercentage by default is 0 and 50 respectively
+  data: {
+    labels: ["M", "T", "W", "T", "F", "S", "S"],
+    datasets: [{
+      backgroundColor: [
+        "#2ecc71",
+        "#3498db",
+        "#95a5a6",
+        "#9b59b6",
+        "#f1c40f",
+        "#e74c3c",
+        "#34495e"
+      ],
+      data: [12, 19, 3, 17, 28, 24, 7]
+    }]
+  },
+  options:{
+    cutoutPercentage:10,                             // The percentage of the chart that is cut out of the middle.
+    animation:{
+      animateRotate:true,                           // If true, the chart will animate in with a rotation animation.
+      animateScale:false                           // If true, will animate scaling the chart from the center outwards.
+    },
+    rotation:-0.5*Math.PI                           // Starting angle to draw arcs from.
+  }
+});
+
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 	<title>BarChart</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>         
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>    <!--CDN link-->     
 
                                                                                             <!--USE src="static/Chart.min.js" for example1
                                                                                                     src="static/Chart1.min.js" for example2-->
@@ -64,8 +64,9 @@
 
 <script>
 	// Global parameters:
-    Chart.defaults.global.defaultColor                    //If a color is needed, but not specified, Chart.js will use the global default color. 
+    Chart.defaults.global.defaultColor ;                  //If a color is needed, but not specified, Chart.js will use the global default color. 
                                                         //It is initially set to 'rgba(0, 0, 0, 0.1)'
+
     Chart.defaults.global.responsive = false;                  //do not resize the chart canvas when its container does (keep at 600x400px)
 
 // define the chart data
@@ -82,15 +83,7 @@ var chartData = {
       borderDash: [],
       borderDashOffset: 0.0,
       borderJoinStyle: 'miter',
-      pointBorderColor: "rgba(75,192,192,0.6)",
-      pointBackgroundColor: "#fff",
-      pointBorderWidth: 1,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(50,192,192,1)",
-      pointHoverBorderColor: "#000",
-      pointHoverBorderWidth: 2,
-      pointRadius: 5,
-      pointHitRadius: 10,
+    
       data : [{% for item in values %}
                 "{{item}}",
               {% endfor %}],
@@ -110,10 +103,15 @@ var myChart = new Chart(ctx, {
 easing :"easeOutBounce"
     },
         scales: {
+            xAxes: [{
+                stacked: true                           // stacked area chart
+            }],
+
             yAxes: [{
                 ticks: {
                     beginAtZero:true
-                }
+                },
+                stacked:true                           // stacked area chart
             }]
         },
         layout:{
